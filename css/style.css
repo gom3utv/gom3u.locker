@@ -321,3 +321,62 @@ th, td {
     border-bottom: 1px solid #e2e8f0 !important;
 }
 
+/* Header & Navbar Alignment Fix */
+header, .navbar {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 12px 24px !important;
+    background: #ffffff !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+    flex-wrap: wrap !important;
+    gap: 15px !important;
+}
+
+.brand-logo, .logo {
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    white-space: nowrap !important;
+}
+
+nav, .nav-links {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    flex-wrap: wrap !important;
+}
+
+/* Responsive Table & Container Fix */
+.table-responsive {
+    width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    background: #ffffff !important;
+    border-radius: 8px !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
+    margin-top: 1rem !important;
+}
+
+table, .admin-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    white-space: nowrap !important;
+}
+
+th, td {
+    padding: 12px 16px !important;
+    text-align: left !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+}
+
+/* Form Row Layout */
+.form-row {
+    display: flex !important;
+    gap: 15px !important;
+    flex-wrap: wrap !important;
+}
+
+.form-group.col {
+    flex: 1 !important;
+    min-width: 200px !important;
+}
