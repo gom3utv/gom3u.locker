@@ -275,3 +275,49 @@ body {
 .footer-links a:hover {
     color: var(--primary-color);
 }
+
+/* UI Fixes for Responsive Layout & Admin Header */
+header, .navbar {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    padding: 1rem !important;
+    background: #ffffff !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05) !important;
+}
+
+.brand-logo, .logo {
+    font-size: 1.25rem !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+    margin-right: 1rem !important;
+}
+
+nav, .nav-links {
+    display: flex !important;
+    align-items: center !important;
+    gap: 15px !important;
+    flex-wrap: wrap !important;
+}
+
+/* Responsive Table Fix */
+.table-responsive, div:has(> table) {
+    width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    margin-top: 1rem !important;
+}
+
+table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    min-width: 600px !important; /* স্ক্রোলিং নিশ্চিত করার জন্য */
+}
+
+th, td {
+    padding: 12px 15px !important;
+    text-align: left !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+}
+
