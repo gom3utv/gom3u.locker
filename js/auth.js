@@ -14,13 +14,17 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 
-// Check current user status
+// Check auth status ONLY on admin pages
 onAuthStateChanged(auth, (user) => {
+  const isAdminPath = window.location.pathname.includes("/admin");
   const isLoginPage = window.location.pathname.includes("login.html");
-  if (!user && !isLoginPage) {
-    window.location.href = "login.html";
-  } else if (user && isLoginPage) {
-    window.location.href = "index.html";
+
+  if (isAdminPath) {
+    if (!user && !isLoginPage) {
+      window.location.href = "login.html";
+    } else if (user && isLoginPage) {
+      window.location.href = "index.html";
+    }
   }
 });
 
