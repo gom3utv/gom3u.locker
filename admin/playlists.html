@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Playlists | GoM3U TV Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body class="admin-body">
+
+    <!-- Admin Layout Header -->
+    <header class="admin-header">
+        <div class="admin-nav-container">
+            <a href="index.html" class="brand-title">GoM3U<span class="brand-accent">TV</span> <span class="admin-badge">Admin</span></a>
+            <div class="admin-nav-links">
+                <a href="index.html" class="nav-item">Dashboard</a>
+                <a href="playlists.html" class="nav-item active">Playlists</a>
+                <a href="settings.html" class="nav-item">Settings</a>
+                <a href="statistics.html" class="nav-item">Statistics</a>
+                <button id="logoutBtn" class="btn btn-sm btn-outline-danger">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="admin-main container">
+        <div class="page-header">
+            <div>
+                <h1 class="page-title">Playlists Management</h1>
+                <p class="page-subtitle">Add, edit, enable or disable your IPTV M3U playlists.</p>
+            </div>
+            <button id="openAddModalBtn" class="btn btn-primary">+ Add New Playlist</button>
+        </div>
+
+        <!-- Alert Notification Box -->
+        <div id="adminAlert" class="alert" style="display: none;"></div>
+
+        <!-- Playlists Table Section -->
+        <div class="card table-card">
+            <div class="table-responsive">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Thumbnail</th>
+                            <th>Title</th>
+                            <th>Status</th>
+                            <th>Created Date</th>
+                            <th>Unlocks</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="playlistsTableBody">
+                        <!-- Dynamic Playlists Rows Will Be Injected Here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Loader State -->
+            <div id="tableLoader" class="loading-spinner">
+                <div class="spinner"></div>
+                <p>Loading playlists...</p>
+            </div>
+
+            <!-- Empty State -->
+            <div id="tableEmptyState" class="empty-state" style="display: none;">
+                <p>No playlists found. Click "Add New Playlist" to create one.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal Form for Add/Edit Playlist -->
+    <div id="playlistModal" class="modal-overlay" style="display: none;">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h2 id="modalTitle" class="modal-heading">Add New Playlist</h2>
+                <button id="closeModalBtn" class="modal-close-btn">&times;</button>
+            </div>
+            <form id="playlistForm">
+                <input type="hidden" id="playlistId">
+                <input type="hidden" id="existingThumbnailUrl">
+                <input type="hidden" id="existingThumbnailPath">
+
+                <div class="form-group">
+                    <label for="title">Playlist Title *</label>
+                    <input type="text" id="title" class="form-control" placeholder="e.g. GoM3U Sports Special" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Short Description *</label>
+                    <textarea id="description" class="form-control" rows="3" placeholder="Brief info about available channels" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="playlistUrl">Destination M3U / Playlist URL *</label>
+                    <input type="url" id="playlistUrl" class="form-control" placeholder="https://example.com/playlist.m3u" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <select id="status" class="form-control">
+                        <option value="active">Active (Visible on Homepage)</option>
+                        <option value="disabled">Disabled (Hidden)</option>
+                    </select>
+                </div>
+
+                <!-- Custom Verification URLs (Optional Override) -->
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label for="step1Url">Step 1 Link (Optional)</label>
+                        <input type="url" id="step1Url" class="form-control" placeholder="Default setting will apply if empty">
+                    </div>
+                    <div class="form-group col">
+                        <label for="step2Url">Step 2 Link (Optional)</label>
+                        <input type="url" id="step2Url" class="form-control" placeholder="Default setting will apply if empty">
+                    </div>
+                </div>
+
+                <!-- Thumbnail Image File Upload Section -->
+                <div class="form-group">
+                    <label for="thumbnailInput">Playlist Thumbnail Image</label>
+                    <input type="file" id="thumbnailInput" class="form-control" accept="image/png, image/jpeg, image/webp">
+                    <small class="form-text">Accepted formats: JPG, PNG, WEBP (Max size: 2MB)</small>
+                </div>
+
+                <!-- Live Image Preview Box -->
+                <div id="imagePreviewContainer" class="image-preview-container" style="display: none;">
+                    <img id="imagePreview" src="" alt="Thumbnail Preview" class="img-preview">
+                    <button type="button" id="removeImageBtn" class="btn btn-sm btn-outline-danger">Remove Image</button>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" id="cancelModalBtn" class="btn btn-secondary">Cancel</button>
+                    <button type="submit" id="savePlaylistBtn" class="btn btn-primary">
+                        <span id="saveBtnText">Save Playlist</span>
+                        <div id="saveSpinner" class="btn-spinner" style="display: none;"></div>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript Controllers -->
+    <script type="module" src="../js/auth.js"></script>
+    <script type="module" src="../js/playlists.js"></script>
+</body>
+</html>

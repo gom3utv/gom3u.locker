@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Settings | GoM3U TV Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body class="admin-body">
+
+    <!-- Admin Layout Header -->
+    <header class="admin-header">
+        <div class="admin-nav-container">
+            <a href="index.html" class="brand-title">GoM3U<span class="brand-accent">TV</span> <span class="admin-badge">Admin</span></a>
+            <div class="admin-nav-links">
+                <a href="index.html" class="nav-item">Dashboard</a>
+                <a href="playlists.html" class="nav-item">Playlists</a>
+                <a href="settings.html" class="nav-item active">Settings</a>
+                <a href="statistics.html" class="nav-item">Statistics</a>
+                <button id="logoutBtn" class="btn btn-sm btn-outline-danger">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="admin-main container">
+        <div class="page-header">
+            <div>
+                <h1 class="page-title">Global Settings</h1>
+                <p class="page-subtitle">Configure default verification links, timer durations, site branding and notice banners.</p>
+            </div>
+        </div>
+
+        <!-- Alert Notification Box -->
+        <div id="settingsAlert" class="alert" style="display: none;"></div>
+
+        <!-- Settings Form Card -->
+        <div class="card settings-card">
+            <form id="settingsForm">
+                
+                <h2 class="settings-section-title">🔗 Default Unlock Verification Links</h2>
+                <div class="form-group">
+                    <label for="defaultStep1Url">Default Step 1 Verification URL *</label>
+                    <input type="url" id="defaultStep1Url" class="form-control" placeholder="https://example.com/step1-verify" required>
+                    <small class="form-text">Used across all playlists unless custom link is provided for a specific playlist.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="defaultStep2Url">Default Step 2 Verification URL *</label>
+                    <input type="url" id="defaultStep2Url" class="form-control" placeholder="https://example.com/step2-verify" required>
+                    <small class="form-text">Second step link for user redirect during unlock process.</small>
+                </div>
+
+                <hr class="divider">
+
+                <h2 class="settings-section-title">⏱️ Verification Timer Settings</h2>
+                <div class="form-group">
+                    <label for="timerSeconds">Verification Timer Duration (Seconds) *</label>
+                    <input type="number" id="timerSeconds" class="form-control" min="5" max="300" placeholder="15" required>
+                    <small class="form-text">Countdown time users must wait on each verification step before link unlocks.</small>
+                </div>
+
+                <hr class="divider">
+
+                <h2 class="settings-section-title">📢 Site Announcement & Branding</h2>
+                <div class="form-group">
+                    <label for="siteName">Site Title / Brand Name</label>
+                    <input type="text" id="siteName" class="form-control" placeholder="GoM3U TV">
+                </div>
+
+                <div class="form-group">
+                    <label for="noticeBanner">Homepage Notice Banner Text (Optional)</label>
+                    <textarea id="noticeBanner" class="form-control" rows="3" placeholder="Enter notice text to display at the top of the homepage..."></textarea>
+                    <small class="form-text">Leave blank if you do not wish to display any notice banner.</small>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="saveSettingsBtn" class="btn btn-primary">
+                        <span id="saveBtnText">Save Settings</span>
+                        <div id="saveSpinner" class="btn-spinner" style="display: none;"></div>
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </main>
+
+    <!-- JavaScript Controllers -->
+    <script type="module" src="../js/auth.js"></script>
+    <script type="module" src="../js/settings.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics | GoM3U TV Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body class="admin-body">
+
+    <header class="admin-header">
+        <div class="admin-nav-container">
+            <a href="index.html" class="brand-title">GoM3U<span class="brand-accent">TV</span> <span class="admin-badge">Admin</span></a>
+            <div class="admin-nav-links">
+                <a href="index.html" class="nav-item">Dashboard</a>
+                <a href="playlists.html" class="nav-item">Playlists</a>
+                <a href="settings.html" class="nav-item">Settings</a>
+                <a href="statistics.html" class="nav-item active">Statistics</a>
+                <button id="logoutBtn" class="btn btn-sm btn-outline-danger">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="admin-main container">
+        <div class="page-header">
+            <div>
+                <h1 class="page-title">Unlock Statistics & Reports</h1>
+                <p class="page-subtitle">Detailed unlock metrics and ranking for all playlists.</p>
+            </div>
+        </div>
+
+        <!-- Full Ranked Statistics Table -->
+        <div class="card table-card">
+            <div class="table-responsive">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Thumbnail</th>
+                            <th>Title</th>
+                            <th>Status</th>
+                            <th>Total Unlocks</th>
+                        </tr>
+                    </thead>
+                    <tbody id="statsTableBody">
+                        <!-- Dynamic Stats Injected Here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="statsLoader" class="loading-spinner">
+                <div class="spinner"></div>
+                <p>Loading analytics data...</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript Controllers -->
+    <script type="module" src="../js/auth.js"></script>
+    <script type="module" src="../js/statistics.js"></script>
+</body>
+</html>
