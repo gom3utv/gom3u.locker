@@ -1,0 +1,199 @@
+/* ==========================================================================
+   Unlock Verification Page Styling
+   ========================================================================== */
+
+.unlock-main {
+    max-width: 680px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.unlock-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+/* Playlist Info Header */
+.playlist-info-header {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+}
+
+.unlock-thumb {
+    width: 120px;
+    height: 68px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+}
+
+.unlock-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 0;
+    color: #0f172a;
+}
+
+.unlock-desc {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin: 0.25rem 0 0 0;
+}
+
+.divider {
+    border: 0;
+    border-top: 1px solid #e2e8f0;
+    margin: 1.75rem 0;
+}
+
+/* Steps Styling */
+.steps-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.section-heading {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.section-sub {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin: 0.2rem 0 1rem 0;
+}
+
+.step-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    background: #ffffff;
+    transition: all 0.2s ease;
+}
+
+.step-card.disabled {
+    opacity: 0.5;
+    background: #f8fafc;
+}
+
+.step-card.active {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.step-card.completed {
+    border-color: #10b981;
+    background: #f0fdf4;
+}
+
+.step-badge {
+    background: #2563eb;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+}
+
+.step-card.completed .step-badge {
+    background: #10b981;
+}
+
+.step-info h3 {
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.step-info p {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin: 0.2rem 0 0 0;
+}
+
+.step-btn {
+    white-space: nowrap;
+}
+
+/* Timer Box */
+.timer-card {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.timer-text {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1e40af;
+    margin: 0 0 0.5rem 0;
+}
+
+.progress-bar-bg {
+    width: 100%;
+    height: 8px;
+    background: #dbeafe;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: #2563eb;
+    width: 100%;
+    transition: width 1s linear;
+}
+
+/* Result Card */
+.result-card {
+    margin-top: 1.5rem;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.success-icon {
+    font-size: 2rem;
+}
+
+.result-card h2 {
+    font-size: 1.2rem;
+    color: #15803d;
+    margin: 0.5rem 0;
+}
+
+.result-card p {
+    font-size: 0.875rem;
+    color: #166534;
+    margin: 0 0 1.25rem 0;
+}
+
+.url-input-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.copy-alert {
+    font-size: 0.8rem;
+    color: #15803d;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.error-state {
+    text-align: center;
+    padding: 2rem;
+}
