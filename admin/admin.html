@@ -3,27 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playlists Management - GoM3U TV</title>
+    <title>Admin Dashboard - GoM3U TV</title>
     <link rel="stylesheet" href="../css/style.css">
     <style>
-        /* Essential Inline Fixes for Clean Layout */
         body { font-family: system-ui, -apple-system, sans-serif; background: #f8fafc; margin: 0; padding: 0; }
         .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; background: #fff; border-bottom: 1px solid #e2e8f0; }
         .nav-links { display: flex; gap: 1rem; align-items: center; }
         .nav-links a { text-decoration: none; color: #475569; font-weight: 500; }
         .nav-links a.active { color: #2563eb; font-weight: 600; }
-        .card { background: #fff; border-radius: 8px; border: 1px solid #e2e8f0; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
-        .form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
-        .form-group { margin-bottom: 1rem; }
-        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.875rem; color: #334155; }
-        .form-group input, .form-group select { width: 100%; padding: 0.6rem; border: 1px solid #cbd5e1; border-radius: 6px; box-sizing: border-box; }
-        .btn { padding: 0.6rem 1.2rem; border-radius: 6px; font-weight: 600; border: none; cursor: pointer; }
-        .btn-primary { background: #2563eb; color: #fff; }
-        .btn-primary:hover { background: #1d4ed8; }
-        .table-responsive { width: 100%; overflow-x: auto; background: #fff; border-radius: 8px; border: 1px solid #e2e8f0; }
-        table { width: 100%; border-collapse: collapse; text-align: left; }
-        th, td { padding: 0.75rem 1rem; border-bottom: 1px solid #e2e8f0; }
-        th { background: #f1f5f9; color: #475569; font-size: 0.875rem; }
+        .card { background: #fff; border-radius: 8px; border: 1px solid #e2e8f0; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        .btn { padding: 0.5rem 1rem; border-radius: 6px; font-weight: 600; border: none; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -33,93 +22,29 @@
         <div class="nav-container">
             <a href="index.html" style="font-size: 1.25rem; font-weight: bold; text-decoration: none; color: #0f172a;">GoM3U<span style="color: #2563eb;">TV</span> Admin</a>
             <nav class="nav-links">
-                <a href="index.html">Dashboard</a>
-                <a href="playlists.html" class="active">Playlists</a>
+                <a href="index.html" class="active">Dashboard</a>
+                <a href="playlists.html">Playlists</a>
                 <a href="settings.html">Settings</a>
                 <a href="statistics.html">Statistics</a>
-                <button id="logoutBtn" class="btn" style="background:#ef4444; color:#fff; padding: 0.4rem 0.8rem;">Logout</button>
+                <button id="logoutBtn" class="btn" style="background:#ef4444; color:#fff;">Logout</button>
             </nav>
         </div>
     </header>
 
     <main style="max-width: 1000px; margin: 2rem auto; padding: 0 1rem;">
-        
-        <!-- PAGE TITLE -->
         <div style="margin-bottom: 1.5rem;">
-            <h2>Playlists Management</h2>
-            <p style="color: #64748b; margin-top: 4px;">Add, edit, enable or disable your IPTV M3U playlists.</p>
+            <h2>Admin Dashboard</h2>
+            <p style="color: #64748b; margin-top: 4px;">Welcome to GoM3U TV Control Panel.</p>
         </div>
 
-        <div id="adminAlert" style="display: none; padding: 10px; border-radius: 6px; margin-bottom: 1rem;"></div>
-
-        <!-- ADD NEW PLAYLIST FORM CARD -->
         <div class="card">
-            <h3 style="margin-top:0; margin-bottom: 1.2rem;">+ Add New Playlist</h3>
-            <form id="playlistForm">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="title">Playlist Title *</label>
-                        <input type="text" id="title" required placeholder="e.g. Bangladesh Sports IPTV">
-                    </div>
-                    <div class="form-group">
-                        <label for="status">Status</label>
-                        <select id="status">
-                            <option value="active">Active (Visible)</option>
-                            <option value="disabled">Disabled (Hidden)</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="step1Url">Step 1 Link / M3U URL *</label>
-                        <input type="url" id="step1Url" required placeholder="https://example.com/playlist.m3u">
-                    </div>
-                    <div class="form-group">
-                        <label for="step2Url">Step 2 Link (Optional)</label>
-                        <input type="url" id="step2Url" placeholder="https://example.com/step2">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="thumbnailUrl">Thumbnail Image URL (Optional)</label>
-                    <input type="url" id="thumbnailUrl" placeholder="https://example.com/logo.png">
-                </div>
-
-                <button type="submit" id="savePlaylistBtn" class="btn btn-primary">
-                    <span id="saveBtnText">Save Playlist</span>
-                    <span id="saveSpinner" style="display:none;">Saving...</span>
-                </button>
-            </form>
+            <h3>Quick Overview</h3>
+            <p style="color: #475569;">Manage your IPTV links, notice banners, and view statistics from the navigation menu above.</p>
         </div>
-
-        <!-- PLAYLISTS LIST TABLE -->
-        <h3 style="margin-bottom: 1rem;">Existing Playlists</h3>
-        <div class="table-responsive">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Thumbnail</th>
-                        <th>Title</th>
-                        <th>Status</th>
-                        <th>Created Date</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody id="playlistsTableBody">
-                    <!-- Dynamic Rows Injected Here -->
-                </tbody>
-            </table>
-        </div>
-
-        <div id="dashLoader" style="text-align: center; padding: 2rem;">
-            <p>Loading playlists...</p>
-        </div>
-
     </main>
 
     <!-- Controllers -->
     <script type="module" src="../js/auth.js"></script>
-    <script type="module" src="../js/playlists.js"></script>
+    <script type="module" src="../js/dashboard.js"></script>
 </body>
 </html>
