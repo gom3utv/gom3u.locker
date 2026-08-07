@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlock M3U Playlist | GoM3U TV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/unlock.css">
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">GoM3U<span class="brand-accent">TV</span></a>
+        </div>
+    </header>
+
+    <main class="container unlock-main">
+        <!-- Main Unlock Card -->
+        <div class="unlock-card">
+            
+            <!-- Loader State -->
+            <div id="unlockLoader" class="loading-state">
+                <div class="spinner"></div>
+                <p>Loading playlist details...</p>
+            </div>
+
+            <!-- Error State -->
+            <div id="unlockError" class="error-state" style="display: none;">
+                <h2>Playlist Not Found</h2>
+                <p>The playlist you are looking for is invalid, disabled, or has been removed.</p>
+                <a href="index.html" class="btn btn-primary">Back to Home</a>
+            </div>
+
+            <!-- Content Area (Initially Hidden) -->
+            <div id="unlockContent" style="display: none;">
+                
+                <!-- Playlist Info Preview Header -->
+                <div class="playlist-info-header">
+                    <img id="playlistThumb" src="assets/placeholder.jpg" alt="Playlist Thumbnail" class="unlock-thumb">
+                    <div class="playlist-details">
+                        <h1 id="playlistTitle" class="unlock-title">Playlist Title</h1>
+                        <p id="playlistDesc" class="unlock-desc">Playlist Description</p>
+                    </div>
+                </div>
+
+                <hr class="divider">
+
+                <!-- Step-by-Step Verification Box -->
+                <div class="steps-container">
+                    <h2 class="section-heading">Complete Verification to Unlock</h2>
+                    <p class="section-sub">Follow the steps below to reveal your playlist download/stream link.</p>
+
+                    <!-- STEP 1 -->
+                    <div id="step1Box" class="step-card active">
+                        <div class="step-badge">Step 1</div>
+                        <div class="step-info">
+                            <h3>Visit Verification Link 1</h3>
+                            <p>Click the button below and wait for the timer to finish.</p>
+                        </div>
+                        <button id="step1Btn" class="btn btn-primary step-btn">
+                            <span>Open Step 1 Link</span>
+                        </button>
+                    </div>
+
+                    <!-- STEP 2 -->
+                    <div id="step2Box" class="step-card disabled">
+                        <div class="step-badge">Step 2</div>
+                        <div class="step-info">
+                            <h3>Visit Verification Link 2</h3>
+                            <p>Complete the second link verification to unlock the playlist.</p>
+                        </div>
+                        <button id="step2Btn" class="btn btn-secondary step-btn" disabled>
+                            <span>Locked (Complete Step 1)</span>
+                        </button>
+                    </div>
+
+                    <!-- Countdown Timer Overlay -->
+                    <div id="timerContainer" class="timer-card" style="display: none;">
+                        <p class="timer-text">Please wait <span id="timerCountdown">15</span> seconds...</p>
+                        <div class="progress-bar-bg">
+                            <div id="timerProgressBar" class="progress-bar-fill"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Final Destination Link Result Box (Hidden Until Both Steps Complete) -->
+                <div id="resultBox" class="result-card" style="display: none;">
+                    <div class="success-icon">🎉</div>
+                    <h2>Playlist Unlocked Successfully!</h2>
+                    <p>Copy your M3U link or download the file directly below.</p>
+                    
+                    <div class="url-input-group">
+                        <input type="text" id="unlockedUrlInput" class="form-control" readonly>
+                        <button id="copyUrlBtn" class="btn btn-primary">Copy Link</button>
+                    </div>
+                    <div id="copyAlert" class="copy-alert" style="display: none;">Copied to clipboard!</div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript Controllers -->
+    <script type="module" src="js/unlock.js"></script>
+</body>
+</html>
